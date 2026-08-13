@@ -46,7 +46,7 @@ export function Closing() {
 
         {/* ── Blue House Team Members ── */}
         <Reveal delay={0.2}>
-          <div className="mx-auto mt-12 max-w-3xl sm:mt-16">
+          <div id="members" className="mx-auto mt-12 max-w-3xl scroll-mt-28 sm:mt-16 sm:scroll-mt-36">
             <div className="mb-8 sm:mb-10">
               <p className="eyebrow">Our Team</p>
               <h3 className="mt-3 font-display text-2xl tracking-tight text-ink sm:mt-4 sm:text-3xl md:text-4xl">

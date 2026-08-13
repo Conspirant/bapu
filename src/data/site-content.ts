@@ -151,4 +151,5 @@ export const notices: Notice[] = [
 export const navLinks = [
   { label: "Today", href: "#today" },
   { label: "His Story", href: "#his-story" },
+  { label: "Members", href: "#members" },
 ];
