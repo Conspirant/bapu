@@ -4,13 +4,12 @@ import { Hero } from "@/components/sections/Hero";
 import { TodaysMessage } from "@/components/sections/TodaysMessage";
 import { Discover } from "@/components/sections/Discover";
 import { Timeline } from "@/components/sections/Timeline";
-import { NoticeBoard } from "@/components/sections/NoticeBoard";
 import { QrSection } from "@/components/sections/QrSection";
 import { Closing } from "@/components/sections/Closing";
 
 const title = "Bapu Speaks — An Interactive School Notice Board";
 const description =
-  "Scan, listen and discover: a museum-style school exhibit with today's message, Gandhi's story, a timeline and the school notice board.";
+  "Scan, listen and discover: a museum-style school exhibit with today's message, Gandhi's story, and timeline.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -35,7 +34,6 @@ function Index() {
         <TodaysMessage />
         <Discover />
         <Timeline />
-        <NoticeBoard />
         <QrSection />
       </main>
       <Closing />
