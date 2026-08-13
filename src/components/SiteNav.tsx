@@ -1,21 +1,11 @@
 import { useEffect, useState } from "react";
 import { navLinks } from "@/data/site-content";
 import { cn } from "@/lib/utils";
-import bannerAsset from "@/assets/gtps-banner.png.asset.json";
-
-/**
- * Banner image sources
- */
-const BANNER_SOURCES = [
-  "/images/gtps-banner.png",
-  bannerAsset.url,
-];
+import gtpsBanner from "@/assets/gtps-banner.png";
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const [bannerSrcIdx, setBannerSrcIdx] = useState(0);
-  const bannerFailed = bannerSrcIdx >= BANNER_SOURCES.length;
 
   useEffect(() => {
     let lastY = 0;
@@ -45,35 +35,13 @@ export function SiteNav() {
       {/* School banner area — dark bg so the white text shows clearly */}
       <div className="bg-surface">
         <div className="mx-auto flex max-w-6xl items-center justify-center px-3 py-3 sm:px-5 sm:py-4 md:px-8 md:py-5">
-          {!bannerFailed ? (
-            <img
-              src={BANNER_SOURCES[bannerSrcIdx]}
-              alt="General Thimayya Public School, sponsored by Kodava Samaja Madikeri"
-              className="w-full max-w-2xl h-auto object-contain py-1 sm:h-20 md:h-24 lg:h-28"
-              width={768}
-              height={170}
-              onError={() => setBannerSrcIdx((i) => i + 1)}
-            />
-          ) : (
-            /* Text-based fallback when no image is available */
-            <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-full border-2 border-amber-400/80 bg-amber-500/20 sm:size-14 md:size-16">
-                <span className="text-base font-bold text-amber-400 sm:text-xl md:text-2xl">G</span>
-              </div>
-              <div className="text-center">
-                <p className="text-[8px] tracking-[0.2em] text-paper/60 sm:text-[9px]">Estd : 1998</p>
-                <h1 className="font-display text-sm font-bold uppercase tracking-wide text-paper sm:text-xl md:text-2xl lg:text-[1.7rem]">
-                  General Thimayya Public School
-                </h1>
-                <p className="text-[8px] font-semibold uppercase tracking-[0.15em] text-paper/80 sm:text-[10px] sm:tracking-[0.2em] md:text-xs">
-                  Sponsored by Kodava Samaja, Madikeri
-                </p>
-                <p className="mt-0.5 hidden text-[7px] tracking-wide text-paper/50 sm:block sm:text-[8px] md:text-[9px]">
-                  Affiliated to Council for the Indian School Certificate Examination, New Delhi
-                </p>
-              </div>
-            </div>
-          )}
+          <img
+            src={gtpsBanner}
+            alt="General Thimayya Public School, sponsored by Kodava Samaja Madikeri"
+            className="w-full max-w-2xl h-auto object-contain py-1 sm:h-20 md:h-24 lg:h-28"
+            width={768}
+            height={170}
+          />
         </div>
       </div>
       {/* Blue house tagline strip */}

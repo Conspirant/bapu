@@ -143,7 +143,7 @@ export function AudioPlayer({ className }: { className?: string }) {
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   const [ready, setReady] = useState(false);
-  const [ttsMode, setTtsMode] = useState(false);
+  const [ttsMode, setTtsMode] = useState(true);
   const [playing, setPlaying] = useState(false);
   const [current, setCurrent] = useState(0);
   const [duration, setDuration] = useState(audioConfig.fallbackDurationSeconds);
