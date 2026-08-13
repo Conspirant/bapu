@@ -81,17 +81,43 @@ const MALE_KEYWORDS = [
 
 const FEMALE_KEYWORDS = [
   "female",
+  "lekha",
+  "samantha",
+  "siri",
+  "karen",
+  "victoria",
+  "moira",
+  "tessa",
+  "nicky",
+  "alison",
+  "ava",
+  "serena",
+  "stephanie",
+  "zoe",
+  "kate",
   "zira",
   "hazel",
   "heera",
   "susan",
   "catherine",
-  "samantha",
-  "victoria",
-  "karen",
   "veena",
   "fiona",
   "eva",
+  "kyoko",
+  "ting-ting",
+  "sin-ji",
+  "amanda",
+  "alice",
+  "monica",
+  "paolina",
+  "sara",
+  "yelda",
+  "mariska",
+  "carmit",
+  "leila",
+  "meijia",
+  "chloe",
+  "audrey",
 ];
 
 /** Filters available browser voices specifically for male voices, defaulting to Indian English (en-IN) male voice */
@@ -100,7 +126,7 @@ function getMaleVoices(): SpeechSynthesisVoice[] {
   const voices = speechSynthesis.getVoices();
   if (!voices || voices.length === 0) return [];
 
-  // Filter out any explicitly female voices
+  // Filter out any female voices
   const filtered = voices.filter(
     (v) =>
       v.lang.startsWith("en") &&
@@ -110,9 +136,8 @@ function getMaleVoices(): SpeechSynthesisVoice[] {
   const list = filtered.length > 0 ? filtered : voices;
 
   // Sort logic:
-  // 1. Indian English Male Voice (en-IN) -> FIRST / DEFAULT PRIORITY
+  // 1. Indian English Male Voice (en-IN with male keyword or Rishi/Prabhat) -> TOP DEFAULT
   // 2. Other Male voices
-  // 3. Rest of voices
   return [...list].sort((a, b) => {
     const aIsIndian =
       a.lang.toLowerCase().includes("in") ||
@@ -190,8 +215,8 @@ export function AudioPlayer({ className }: { className?: string }) {
     stopTTS();
 
     const utterance = new SpeechSynthesisUtterance(TTS_TEXT);
-    utterance.rate = 0.92;
-    utterance.pitch = 0.95; // Slightly lower pitch for a calm, natural male voice
+    utterance.rate = 0.88;
+    utterance.pitch = 0.75; // Deep male vocal pitch tone across all devices
     utterance.volume = muted ? 0 : volume;
 
     // Attach selected male voice
