@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
+import qrCodeImg from "@/assets/qr-code.png";
 
 const steps = [
   "Find the QR code on the school notice board.",
@@ -9,36 +10,28 @@ const steps = [
 ];
 
 function QrGlyph() {
-  const cells = Array.from({ length: 121 }, (_, i) => {
-    const r = Math.floor(i / 11);
-    const c = i % 11;
-    const corner =
-      (r < 3 && c < 3) || (r < 3 && c > 7) || (r > 7 && c < 3);
-    const on = corner || (r * 7 + c * 13 + ((r * c) % 5)) % 3 === 0;
-    return { i, on };
-  });
-
   return (
     <div className="relative overflow-hidden border border-border bg-card p-3 sm:p-5">
-      <div className="grid grid-cols-11 gap-[2px] sm:gap-[3px]">
-        {cells.map(({ i, on }) => (
-          <span
-            key={i}
-            className={on ? "aspect-square bg-surface" : "aspect-square bg-transparent"}
-          />
-        ))}
+      <div className="relative aspect-square w-full overflow-hidden bg-white p-2 sm:p-3">
+        <img
+          src={qrCodeImg}
+          alt="Bapu's Voice QR Code"
+          className="h-full w-full object-contain"
+          width={280}
+          height={280}
+        />
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-16 motion-reduce:hidden sm:h-20"
+          animate={{ y: ["-25%", "480%"] }}
+          transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="h-full w-full bg-gradient-to-b from-transparent via-saffron/20 to-saffron/10" />
+          <div className="h-px w-full bg-saffron/70 shadow-[0_0_12px_2px_color-mix(in_oklab,var(--saffron)_55%,transparent)]" />
+        </motion.div>
       </div>
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-16 motion-reduce:hidden sm:h-20"
-        animate={{ y: ["-25%", "480%"] }}
-        transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="h-full w-full bg-gradient-to-b from-transparent via-saffron/20 to-saffron/10" />
-        <div className="h-px w-full bg-saffron/70 shadow-[0_0_12px_2px_color-mix(in_oklab,var(--saffron)_55%,transparent)]" />
-      </motion.div>
       <p className="mt-3 text-center text-[9px] uppercase tracking-[0.2em] text-ink-soft sm:mt-4 sm:text-[10px] sm:tracking-[0.24em]">
-        Placeholder code
+        Scan to explore
       </p>
     </div>
   );

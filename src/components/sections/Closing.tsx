@@ -2,8 +2,8 @@ import { Reveal } from "@/components/Reveal";
 import { motion } from "framer-motion";
 
 const blueHouseTeam = {
-  headMistress: "Mrs. Hemavathi B S",
-  members: [
+  houseMistress: "Mrs. Hemavathi B S",
+  mentors: [
     "Mrs. Gangamma I G",
     "Mrs. Sumithra A P",
     "Mrs. Sreela K",
@@ -44,17 +44,17 @@ export function Closing() {
           </div>
         </Reveal>
 
-        {/* ── Blue House Team Members ── */}
+        {/* ── Blue House Team Mentors ── */}
         <Reveal delay={0.2}>
-          <div id="members" className="mx-auto mt-12 max-w-3xl scroll-mt-28 sm:mt-16 sm:scroll-mt-36">
+          <div id="mentors" className="mx-auto mt-12 max-w-3xl scroll-mt-28 sm:mt-16 sm:scroll-mt-36">
             <div className="mb-8 sm:mb-10">
               <p className="eyebrow">Our Team</p>
               <h3 className="mt-3 font-display text-2xl tracking-tight text-ink sm:mt-4 sm:text-3xl md:text-4xl">
-                Blue House Members
+                Blue House Mentors
               </h3>
             </div>
 
-            {/* Head Mistress Card */}
+            {/* House Mistress Card */}
             <motion.div
               className="relative mx-auto mb-8 max-w-sm border border-saffron/50 bg-saffron/8 px-5 py-6 sm:mb-10 sm:px-8 sm:py-8"
               whileHover={{ y: -3 }}
@@ -65,18 +65,18 @@ export function Closing() {
                 className="absolute left-1/2 top-0 h-[2px] w-12 -translate-x-1/2 bg-saffron sm:w-16"
               />
               <p className="text-[10px] uppercase tracking-[0.24em] text-saffron sm:text-[11px]">
-                Head Mistress
+                House Mistress
               </p>
               <p className="mt-2 font-display text-xl tracking-tight text-ink sm:mt-3 sm:text-2xl">
-                {blueHouseTeam.headMistress}
+                {blueHouseTeam.houseMistress}
               </p>
             </motion.div>
 
-            {/* Members Grid */}
+            {/* Mentors Grid */}
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
-              {blueHouseTeam.members.map((member, i) => (
+              {blueHouseTeam.mentors.map((mentor, i) => (
                 <motion.div
-                  key={member}
+                  key={mentor}
                   className="group relative border border-border bg-card px-4 py-4 text-left transition-colors duration-300 hover:border-saffron/40 hover:bg-saffron/5 sm:px-5 sm:py-5"
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -93,10 +93,10 @@ export function Closing() {
                     className="absolute left-3 top-3 size-1.5 rounded-full bg-saffron/60 transition-colors group-hover:bg-saffron sm:left-4 sm:top-4"
                   />
                   <p className="pl-4 font-display text-base tracking-tight text-ink sm:pl-5 sm:text-lg">
-                    {member}
+                    {mentor}
                   </p>
                   <p className="mt-1 pl-4 text-[10px] uppercase tracking-[0.18em] text-ink-soft sm:pl-5 sm:text-[11px]">
-                    Member
+                    Mentor
                   </p>
                 </motion.div>
               ))}
